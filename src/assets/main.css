@@ -1,0 +1,5 @@
+:root {
+  --background-color: rgb(245, 240, 240);
+  --text-color: rgb(14, 16, 16);
+  --box-shadow: 20px 20px 40px #d0cccc, -20px -20px 40px #ffffff;
+}

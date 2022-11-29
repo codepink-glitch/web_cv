@@ -22,7 +22,9 @@ export default defineComponent({
   <div class="about__container">
     <h3 class="font-style">Hi, My name is</h3>
     <h1 class="font-style name-margin">Egor Vasilyev.</h1>
-    <TextWriter :pre-text="preText" :display-text-array="displayTextArray" />
+    <div class="text-writer-wrapper">
+      <TextWriter :pre-text="preText" :display-text-array="displayTextArray" />
+    </div>
     <div class="description-wrapper">
       <span class="font-style">{{ aboutText }}</span>
     </div>
@@ -32,6 +34,12 @@ export default defineComponent({
 <style scoped>
 * {
   --width: 70vw;
+}
+
+@media screen and (max-width: 700px) {
+  .text-writer-wrapper {
+    height: 30vh;
+  }
 }
 
 .about__container {

@@ -109,7 +109,7 @@ export default defineComponent({
 
 <style scoped>
 * {
-  --width: 70vw;
+  --width: 60vw;
 }
 
 .technologies-wrapper {
@@ -148,6 +148,9 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 601px) {
+  .technologies__container {
+    max-width: 40vw;
+  }
   .content__container {
     display: inline-flex;
   }

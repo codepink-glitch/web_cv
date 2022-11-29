@@ -86,7 +86,7 @@ export default defineComponent({
 }
 
 .experience__container {
-  width: 70vw;
+  width: 60vw;
   height: fit-content;
   margin: auto;
   margin-bottom: 30vh;

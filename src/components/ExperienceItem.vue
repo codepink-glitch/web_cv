@@ -55,7 +55,7 @@ hr.divider {
   border-radius: 2vw;
   box-shadow: var(--box-shadow);
   transition: opacity 0.5s ease-in-out;
-  width: 60vw;
+  width: 50vw;
   padding: 1rem;
 }
 

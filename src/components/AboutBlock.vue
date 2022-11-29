@@ -108,10 +108,6 @@ export default defineComponent({
 </template>
 
 <style scoped>
-* {
-  --width: 60vw;
-}
-
 .technologies-wrapper {
   display: inline-flex;
   gap: 4vh;
@@ -186,7 +182,6 @@ img {
 }
 
 .about__container {
-  width: var(--width);
   height: fit-content;
   margin: auto;
   margin-top: 37vh;

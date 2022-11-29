@@ -65,13 +65,17 @@ export default defineComponent({
   padding: 0 2rem;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .header-text {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   #experience-block {
     scroll-margin-top: 5vh;
+  }
+
+  .experience__container {
+    width: 90wv;
   }
 }
 
@@ -83,10 +87,13 @@ export default defineComponent({
   #experience-block {
     scroll-margin-top: 20vh;
   }
+
+  .experience__container {
+    width: 60vw;
+  }
 }
 
 .experience__container {
-  width: 60vw;
   height: fit-content;
   margin: auto;
   margin-bottom: 30vh;

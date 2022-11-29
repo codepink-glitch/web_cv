@@ -51,11 +51,22 @@ hr.divider {
   border-top: 1px solid var(--text-color);
 }
 
+@media screen and (max-width: 700px) {
+  .experience-item {
+    width: 70vw;
+  }
+}
+
+@media screen and (min-width: 701px) {
+  .experience-item {
+    width: 50vw;
+  }
+}
+
 .experience-item {
   border-radius: 2vw;
   box-shadow: var(--box-shadow);
   transition: opacity 0.5s ease-in-out;
-  width: 50vw;
   padding: 1rem;
 }
 

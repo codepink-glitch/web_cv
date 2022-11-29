@@ -12,7 +12,7 @@ export default defineComponent({
       typeStatus: false,
       typingSpeed: 100,
       erasingSpeed: 100,
-      newTextDelay: 2000,
+      newTextDelay: 500,
       displayTextArrayIndex: 0,
       charIndex: 0,
     };
@@ -38,7 +38,13 @@ export default defineComponent({
         setTimeout(this.typeText, this.typingSpeed);
       } else {
         this.typeStatus = false;
-        setTimeout(this.eraseText, this.newTextDelay);
+        // setTimeout(this.eraseText, this.newTextDelay);
+        setTimeout(
+          this.eraseText,
+          this.displayTextArrayIndex === 0
+            ? this.newTextDelay * 4
+            : this.newTextDelay
+        );
       }
     },
     eraseText() {

@@ -1,13 +1,13 @@
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { NSwitch, NIcon } from "naive-ui";
+import { defineComponent } from "vue";
 import { DarkModeOutlined, LightModeOutlined } from "@vicons/material";
+import { NIcon } from "naive-ui";
 
 export default defineComponent({
-  components: { NSwitch, NIcon, DarkModeOutlined, LightModeOutlined },
+  components: { NIcon, DarkModeOutlined, LightModeOutlined },
   data() {
     return {
-      active: ref(false),
+      mode: "light",
       darkThemeTextColor: "aliceblue",
       lightThemeTextColor: "rgb(14, 16, 16)",
       darkThemeBackgroundColor: "#181a19",
@@ -17,25 +17,24 @@ export default defineComponent({
     };
   },
   methods: {
+    changeMode(mode: string) {
+      this.mode = mode;
+      this.changeTheme(mode === "dark");
+    },
     changeTheme(value: boolean) {
       const root: HTMLElement | null = document.querySelector(":root");
-
       this.$emit("themeChange", value);
-
       if (root === null) {
         return;
       }
-
       root.style.setProperty(
         "--background-color",
         value ? this.darkThemeBackgroundColor : this.lightThemeBackgroundColor
       );
-
       root.style.setProperty(
         "--text-color",
         value ? this.darkThemeTextColor : this.lightThemeTextColor
       );
-
       root.style.setProperty(
         "--box-shadow",
         value ? this.darkThemeBoxShadow : this.lightThemeBoxShadow
@@ -46,23 +45,32 @@ export default defineComponent({
 </script>
 
 <template>
-  <NSwitch size="small" @update:value="changeTheme">
-    <template #checked>
-      <NIcon size="16">
-        <DarkModeOutlined class="icon" />
-      </NIcon>
-    </template>
-    <template #unchecked>
-      <NIcon size="16">
-        <LightModeOutlined class="icon" />
-      </NIcon>
-    </template>
-  </NSwitch>
+  <div class="theme-switcher-position">
+    <NIcon size="30">
+      <DarkModeOutlined
+        v-if="mode === 'light'"
+        class="icon"
+        @click="changeMode('dark')"
+      />
+      <LightModeOutlined v-else class="icon" @click="changeMode('light')" />
+    </NIcon>
+  </div>
 </template>
 
 <style scoped>
+.theme-switcher-position {
+  position: fixed;
+  bottom: 1.5%;
+  left: 3%;
+}
 .icon {
   color: var(--text-color);
   transition: color 0.3s linear;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.icon:hover {
+  opacity: 1;
 }
 </style>

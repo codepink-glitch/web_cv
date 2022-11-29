@@ -3,3 +3,14 @@
   --text-color: rgb(14, 16, 16);
   --box-shadow: 20px 20px 40px #d0cccc, -20px -20px 40px #ffffff;
 }
+
+.hoverable {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.hoverable:hover,
+.hoverable:active,
+.hoverable.active {
+  opacity: 1;
+}

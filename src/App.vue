@@ -1,18 +1,22 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { lightTheme, darkTheme, NConfigProvider } from "naive-ui";
-import NavBar from "./components/NavBar.vue";
+import ThemeChangeSwitch from "./components/ThemeChangeSwitch.vue";
 import WelcomeBlock from "./components/WelcomeBlock.vue";
 import AboutBlock from "./components/AboutBlock.vue";
 import ExperienceBlock from "./components/ExperienceBlock.vue";
+import NavBarNew from "./components/NavBarNew.vue";
+import SocialLinks from "./components/SocialLinks.vue";
 
 export default defineComponent({
   components: {
     NConfigProvider,
-    NavBar,
     WelcomeBlock,
     AboutBlock,
     ExperienceBlock,
+    ThemeChangeSwitch,
+    NavBarNew,
+    SocialLinks,
   },
   data() {
     return {
@@ -29,7 +33,9 @@ export default defineComponent({
 
 <template>
   <NConfigProvider :theme="theme">
-    <NavBar @themeChange="changeTheme" class="nav-bar" />
+    <NavBarNew />
+    <SocialLinks />
+    <ThemeChangeSwitch class="theme-changer-position" />
     <WelcomeBlock />
     <AboutBlock />
     <ExperienceBlock />
@@ -37,19 +43,11 @@ export default defineComponent({
 </template>
 
 <style>
-.nav-bar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  z-index: 100;
-  backdrop-filter: blur(2px);
-}
-
 html,
 body {
   color: var(--background-color);
   background-color: var(--background-color);
   transition: background-color;
+  overflow: hidden;
 }
 </style>

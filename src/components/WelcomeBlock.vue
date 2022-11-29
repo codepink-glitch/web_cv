@@ -8,9 +8,9 @@ export default defineComponent({
     return {
       preText: "And i'm a ",
       displayTextArray: [
+        "full-stack developer",
         "backend developer",
         "frontend developer",
-        "full-stack developer",
       ],
       aboutText: `I'm specializing in building and supporting high load web applications and services.`,
     };
